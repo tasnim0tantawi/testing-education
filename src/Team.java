@@ -1,4 +1,5 @@
 import java.util.Hashtable;
+import java.util.Scanner;
 
 public class Team {
     private Hashtable<String, String[][] > studyTeams = new Hashtable<>();
@@ -97,13 +98,39 @@ public class Team {
             if (this.studyTeams.get(subject)[teamNumber - 1][i] != null) {
                 if (this.studyTeams.get(subject)[teamNumber - 1][i].equals(name)) {
                     this.studyTeams.get(subject)[teamNumber - 1][i] = null;
-                    System.out.println("You have successfully removed " + name + " from the team");
+                    System.out.println("You have successfully removed you, " + name + " from the team");
                     return true;
                 }
             }
         }
         System.out.println("This member does not exist in this team");
         // Search for the member name in all teams of the subject
+        for (int i = 0; i < this.studyTeams.get(subject).length; i++) {
+            for (int j = 0; j < this.studyTeams.get(subject)[i].length; j++) {
+                if (this.studyTeams.get(subject)[i][j] != null) {
+                    if (this.studyTeams.get(subject)[i][j].equals(name)) {
+                        System.out.println("Your name is in another team, the team number is " + (i + 1));
+                        System.out.println("Do you want to remove yourself from this team? (Y/N)");
+                        Scanner scanner = new Scanner(System.in);
+                        String answer = scanner.nextLine();
+                        if (answer.equals("Y")) {
+                            this.studyTeams.get(subject)[i][j] = null;
+                            System.out.println("You have successfully removed you, " + name + " from the team");
+                            return true;
+                        }
+                        else if (answer.equals("N")) {
+                            System.out.println("You have not removed yourself from the team");
+                            return false;
+                        }
+                        else {
+                            System.out.println("Invalid input");
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
         return false;
     }
 

@@ -14,6 +14,7 @@ public class Main {
         System.out.println("1- Create a new study team");
         System.out.println("2- Join an existing study team");
         System.out.println("3- View all study teams");
+        System.out.println("4- Delete yourself from a study team");
         int option = input.nextInt();
         if (option ==1){
             System.out.println("Please enter the subject code:");
