@@ -25,42 +25,51 @@ public class Subject {
         this.subjects.get("ITCS333").put("Teacher", "T. Omar");
         this.subjects.get("ITCS333").put("Level", "3");
         this.subjects.get("ITCS333").put("College", "IT");
+        this.subjects.get("ITCS333").put("NoTeams", "2");
         // Java Programming 1
         this.subjects.put("ITCS113", new Hashtable<>());
         this.subjects.get("ITCS113").put("Name", "Java Programming 1");
         this.subjects.get("ITCS113").put("Teacher", "T. Ahmed");
         this.subjects.get("ITCS113").put("Level", "1");
         this.subjects.get("ITCS113").put("College", "IT");
+        this.subjects.get("ITCS113").put("NoTeams", "2");
+
         // Java Programming 2
         this.subjects.put("ITCS114", new Hashtable<>());
         this.subjects.get("ITCS114").put("Name", "Java Programming 2");
         this.subjects.get("ITCS114").put("Teacher", "T. Ali");
         this.subjects.get("ITCS114").put("Level", "1");
         this.subjects.get("ITCS114").put("College", "IT");
+        this.subjects.get("ITCS114").put("NoTeams", "2");
+
         // Analysis and Design of Algorithms
         this.subjects.put("ITCS347", new Hashtable<>());
         this.subjects.get("ITCS347").put("Name", "Analysis and Design of Algorithms");
         this.subjects.get("ITCS347").put("Teacher", "T. Tasnim");
         this.subjects.get("ITCS347").put("Level", "3");
         this.subjects.get("ITCS347").put("College", "IT");
+        this.subjects.get("ITCS347").put("NoTeams", "3");
         // Data Structures
         this.subjects.put("ITCS214", new Hashtable<>());
         this.subjects.get("ITCS214").put("Name", "Data Structures");
         this.subjects.get("ITCS214").put("Teacher", "T. Noor");
         this.subjects.get("ITCS214").put("Level", "2");
         this.subjects.get("ITCS214").put("College", "IT");
+        this.subjects.get("ITCS214").put("NoTeams", "2");
         // Computer Architecture
         this.subjects.put("ITCS222", new Hashtable<>());
         this.subjects.get("ITCS222").put("Name", "Computer Architecture");
         this.subjects.get("ITCS222").put("Teacher", "T. Noor");
         this.subjects.get("ITCS222").put("Level", "2");
         this.subjects.get("ITCS222").put("College", "IT");
+        this.subjects.get("ITCS222").put("NoTeams", "2");
         // Mobile Application Development
         this.subjects.put("ITCS444", new Hashtable<>());
         this.subjects.get("ITCS444").put("Name", "Mobile Application Development");
         this.subjects.get("ITCS444").put("Teacher", "T. Mohammad");
         this.subjects.get("ITCS444").put("Level", "4");
         this.subjects.get("ITCS444").put("College", "IT");
+        this.subjects.get("ITCS444").put("NoTeams", "10");
 
 
     }

@@ -26,14 +26,14 @@ public class TeamTest {
     @Test
     // Testing join an empty team method with a valid subject code and team number
     public void testCase1JoinTeam() {
-        String subjectCode = "ITCS333";
-        String name = "Maria";
-        int teamNumber = 1;
+        String subjectCode = "ITCS347";
+        String name = "martha55";
+        int teamNumber = 2;
         Team instance = new Team();
         instance.joinTeam(subjectCode, name, teamNumber);
-        String[][] expResult = {{"Maria", "0"}};
-        String[][] result = instance.getStudyTeams().get(subjectCode);
-        assertArrayEquals(expResult, result);
+        boolean expResult = true;
+        boolean result = instance.joinTeam(subjectCode, name, teamNumber);
+        assertEquals(expResult, result);
     }
     @Test
     // Testing join team method with invalid subject code and valid team number
@@ -87,7 +87,7 @@ public class TeamTest {
     // Testing creating a new team with a valid subject code
     public void testCase1CreateTeam() {
         String subjectCode = "ITCS333";
-        String name = "Maria";
+        String name = "khaled45";
         Team instance = new Team();
         instance.createTeam(subjectCode, name);
         boolean expResult = true;
@@ -108,8 +108,8 @@ public class TeamTest {
     @Test
     // Creating a team while already being in a team
     public void testCase3CreateTeam() {
-        String subjectCode = "ITCS333";
-        String name = "John";
+        String subjectCode = "ITCS222";
+        String name = "ahmed7500";
         Team instance = new Team();
         instance.createTeam(subjectCode, name);
         boolean expResult = false;
@@ -120,13 +120,14 @@ public class TeamTest {
     @Test
     public void testCase4CreateTeam() {
         String subjectCode = "ITCS444";
-        String name = "Maria";
+        String name = "maria87";
         Team instance = new Team();
         instance.createTeam(subjectCode, name);
         boolean expResult = false;
         boolean result = instance.createTeam(subjectCode, name);
         assertEquals(expResult, result);
     }
+     // Testing remove team method with a valid subject code and team number
 
 
 
