@@ -7,18 +7,21 @@ public class Subject {
 
     }
     public void defineAll(){
-        this.subjects.put("Math101", new Hashtable<>());
-        this.subjects.get("Math101").put("Name", "Calculus 1");
-        this.subjects.get("Math101").put("Teacher", "Miss. Noor");
+        this.subjects.put("MATH101", new Hashtable<>());
+        this.subjects.get("MATH101").put("Name", "Calculus 1");
+        this.subjects.get("MATH101").put("Teacher", "Miss. Noor");
 
-        this.subjects.get("Math101").put("Level", "1");
-        this.subjects.get("Math101").put("College", "Science");
+        this.subjects.get("MATH101").put("Level", "1");
+        this.subjects.get("MATH101").put("College", "Science");
+        this.subjects.get("MATH101").put("NoTeams", "0");
+
         // Calculus 2
-        this.subjects.put("Math102", new Hashtable<>());
-        this.subjects.get("Math102").put("Name", "Calculus 2");
-        this.subjects.get("Math102").put("Teacher", "Miss. Ameera");
-        this.subjects.get("Math102").put("Level", "1");
-        this.subjects.get("Math102").put("College", "Science");
+        this.subjects.put("MATH101", new Hashtable<>());
+        this.subjects.get("MATH102").put("Name", "Calculus 2");
+        this.subjects.get("MATH102").put("Teacher", "Miss. Ameera");
+        this.subjects.get("MATH102").put("Level", "1");
+        this.subjects.get("MATH102").put("College", "Science");
+        this.subjects.get("MATH102").put("NoTeams", "0");
         // Web Development
         this.subjects.put("ITCS333", new Hashtable<>());
         this.subjects.get("ITCS333").put("Name", "Web Development");

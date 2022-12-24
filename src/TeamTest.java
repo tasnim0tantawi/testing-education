@@ -90,6 +90,17 @@ public class TeamTest {
         boolean result = instance.joinTeam(subjectCode, name, teamNumber);
         assertEquals(expResult, result);
     }
+    // Valid subject code but lower case
+    @Test
+    public void testCase7JoinTeam() {
+        String subjectCode = "itcs347";
+        String name = "marya44";
+        int teamNumber = 5;
+        Team instance = new Team();
+        boolean expResult = true;
+        boolean result = instance.joinTeam(subjectCode, name, teamNumber);
+        assertEquals(expResult, result);
+    }
     @Test
     // Testing creating a new team with a valid subject code
     public void testCase1CreateTeam() {
@@ -127,6 +138,15 @@ public class TeamTest {
         String name = "maria87";
         Team instance = new Team();
         boolean expResult = false;
+        boolean result = instance.createTeam(subjectCode, name);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testCase5CreateTeam() {
+        String subjectCode = "itcs114";
+        String name = "ameera0hesham";
+        Team instance = new Team();
+        boolean expResult = true;
         boolean result = instance.createTeam(subjectCode, name);
         assertEquals(expResult, result);
     }
@@ -194,6 +214,17 @@ public class TeamTest {
         int teamNumber = -1;
         Team instance = new Team();
         boolean expResult = false;
+        boolean result = instance.removeMember(subjectCode, name, teamNumber);
+        assertEquals(expResult, result);
+    }
+    // Testing remove team method with a valid subject code in lower case
+    @Test
+    public void testCase7RemoveMember() {
+        String subjectCode = "itcs333";
+        String name = "saranaser8";
+        int teamNumber = 1;
+        Team instance = new Team();
+        boolean expResult = true;
         boolean result = instance.removeMember(subjectCode, name, teamNumber);
         assertEquals(expResult, result);
     }

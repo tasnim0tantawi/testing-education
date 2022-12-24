@@ -43,8 +43,8 @@ public class Team {
         this.studyTeams.get("ITCS333")[0] = new String[]{"saranaser8", "ahmed76yousef", "kathreen77", "ahmed76yousef",
                 "amal77", "anwar55", "asmaa6", "angela66", "morad66", "tamara55"};
         this.studyTeams.put("ITCS214", new String[10][10]);
-        this.studyTeams.put("Math101", new String[10][10]);
-        this.studyTeams.put("Math102", new String[10][10]);
+
+
 
     }
 
@@ -52,6 +52,7 @@ public class Team {
         return this.studyTeams;
     }
     public boolean createTeam(String subjectCode, String name ){
+        subjectCode = subjectCode.toUpperCase();
         // Creating a team while being in an existing team
         if (!studyTeams.containsKey(subjectCode)){
             System.out.println("Subject code is not valid");
@@ -82,7 +83,8 @@ public class Team {
                 }
 
     }
-    public boolean joinTeam(String subjectCode, String name, int teamNumber) {
+        public boolean joinTeam(String subjectCode, String name, int teamNumber) {
+        subjectCode = subjectCode.toUpperCase();
         // Invalid subject code
         if (!this.studyTeams.containsKey(subjectCode)) {
             System.out.println("Invalid subject code");
@@ -118,7 +120,6 @@ public class Team {
         }
         // Join a team
         for (int i = 0; i < studyTeams.get(subjectCode)[teamNumber-1].length; i++) {
-            System.out.println(studyTeams.get(subjectCode)[teamNumber-1][i]);
             if (studyTeams.get(subjectCode)[teamNumber-1][i] == null) {
                 studyTeams.get(subjectCode)[teamNumber-1][i] = name;
                 System.out.println("You joined the team successfully");
@@ -128,6 +129,7 @@ public class Team {
         return false;
     }
     public boolean removeMember(String subject, String name, int teamNumber) {
+        subject = subject.toUpperCase();
         if(!studyTeams.containsKey(subject)) {
             System.out.println("Invalid subject code");
             return false;
