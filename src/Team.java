@@ -63,14 +63,12 @@ public class Team {
                         System.out.println("You are already in a team");
                         return false;
                         }
-
                 }
             }
         }
 
         String numTeams = this.subjects.get(subjectCode).get("NoTeams");
         // Create a new team
-
         if (Integer.parseInt(numTeams) < 10) {
             this.studyTeams.get(subjectCode)[Integer.parseInt(numTeams)] = new String[]{name};
             this.subjects.get(subjectCode).put("NoTeams", String.valueOf(Integer.parseInt(numTeams) + 1));
@@ -145,8 +143,18 @@ public class Team {
         return false;
     }
     public boolean removeMember(String subject, String name, int teamNumber) {
+        if(!studyTeams.containsKey(subject)) {
+            System.out.println("Invalid subject code");
+            return false;
+        }
+        // Invalid team number
+        else if (teamNumber >= this.studyTeams.get(subject).length) {
+            System.out.println("Invalid team number");
+            return false;
+        }
+
         // Remove a member from a team
-        for (int i = 0; i < this.studyTeams.get(subject)[teamNumber - 1].length; i++) {
+        for (int i = 0; i < this.studyTeams.get(subject)[teamNumber-1].length; i++) {
             if (this.studyTeams.get(subject)[teamNumber - 1][i] != null) {
                 if (this.studyTeams.get(subject)[teamNumber - 1][i].equals(name)) {
                     this.studyTeams.get(subject)[teamNumber - 1][i] = null;
@@ -162,27 +170,15 @@ public class Team {
                 if (this.studyTeams.get(subject)[i][j] != null) {
                     if (this.studyTeams.get(subject)[i][j].equals(name)) {
                         System.out.println("Your name is in another team, the team number is " + (i + 1));
-                        System.out.println("Do you want to remove yourself from this team? (Y/N)");
-                        Scanner scanner = new Scanner(System.in);
-                        String answer = scanner.nextLine();
-                        if (answer.equals("Y")) {
-                            this.studyTeams.get(subject)[i][j] = null;
-                            System.out.println("You have successfully removed you, " + name + " from the team");
-                            return true;
-                        }
-                        else if (answer.equals("N")) {
-                            System.out.println("You have not removed yourself from the team");
-                            return false;
-                        }
-                        else {
-                            System.out.println("Invalid input");
-                            return false;
-                        }
+                        this.studyTeams.get(subject)[i][j] = null;
+                        System.out.println("You have successfully removed you, " + name + " from the team");
+                        return true;
+                    }
+
+                }
                     }
                 }
-            }
-        }
-
+        System.out.println("This member does not exist in all teams");
         return false;
     }
 

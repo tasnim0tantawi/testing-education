@@ -87,7 +87,7 @@ public class TeamTest {
     // Testing creating a new team with a valid subject code
     public void testCase1CreateTeam() {
         String subjectCode = "ITCS333";
-        String name = "khaled45";
+        String name = "emad444";
         Team instance = new Team();
         instance.createTeam(subjectCode, name);
         boolean expResult = true;
@@ -109,7 +109,7 @@ public class TeamTest {
     // Creating a team while already being in a team
     public void testCase3CreateTeam() {
         String subjectCode = "ITCS222";
-        String name = "ahmed7500";
+        String name = "zahra45";
         Team instance = new Team();
         instance.createTeam(subjectCode, name);
         boolean expResult = false;
@@ -128,6 +128,63 @@ public class TeamTest {
         assertEquals(expResult, result);
     }
      // Testing remove team method with a valid subject code and team number
+    @Test
+    public void testCase1RemoveTeam() {
+        String subjectCode = "ITCS444";
+        String name = "nadoosha4";
+        int teamNumber = 1;
+        Team instance = new Team();
+        boolean expResult = true;
+        boolean result = instance.removeMember(subjectCode, name, teamNumber);
+        assertEquals(expResult, result);
+
+    }
+    // Testing remove team method with an invalid subject code and valid team number
+    @Test
+    public void testCase2RemoveTeam() {
+        String subjectCode = "CSCA08";
+        String name = "John";
+        int teamNumber = 1;
+        Team instance = new Team();
+        boolean expResult = false;
+        boolean result = instance.removeMember(subjectCode, name, teamNumber);
+        assertEquals(expResult, result);
+    }
+    // Testing remove team method with a valid subject code and invalid team number
+    @Test
+public void testCase3RemoveTeam() {
+        String subjectCode = "ITCS333";
+        String name = "John";
+        int teamNumber = 51;
+        Team instance = new Team();
+        boolean expResult = false;
+        boolean result = instance.removeMember(subjectCode, name, teamNumber);
+        assertEquals(expResult, result);
+    }
+    // Removing a member from a team when not in a team
+    @Test
+    public void testCase4RemoveTeam() {
+        String subjectCode = "ITCS222";
+        String name = "zahra45";
+        int teamNumber = 1;
+        Team instance = new Team();
+        boolean expResult = false;
+        boolean result = instance.removeMember(subjectCode, name, teamNumber);
+        assertEquals(expResult, result);
+    }
+    // Removing a member from a team when it is in another team
+    @Test
+    public void testCase5RemoveTeam() {
+        String subjectCode = "ITCS444";
+        String name = "tasnim44tantawi";
+        int teamNumber = 1;
+        Team instance = new Team();
+        boolean expResult = true;
+        boolean result = instance.removeMember(subjectCode, name, teamNumber);
+        assertEquals(expResult, result);
+    }
+
+
 
 
 
