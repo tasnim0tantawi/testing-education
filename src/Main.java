@@ -5,7 +5,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Team team = new Team();
         Subject subject = new Subject();
-        Hashtable<String, String[][] >studyTeams = team.getStudyTeams();
+        Hashtable<String, String[][]> studyTeams = team.getStudyTeams();
         Hashtable<String, Hashtable<String, String>> subjects = subject.getSubjects();
 
 
@@ -15,6 +15,7 @@ public class Main {
         System.out.println("2- Join an existing study team");
         System.out.println("3- View all study teams");
         System.out.println("4- Delete yourself from a study team");
+
         int option = input.nextInt();
         if (option ==1){
             System.out.println("Please enter the subject code:");
@@ -35,8 +36,6 @@ public class Main {
                 System.out.println("Please enter your name:");
                 String name = input.next();
                 System.out.println(team.joinTeam(subjectCode, name, teamNumber));
-
-
             }
         }
         else if (option==3){
