@@ -21,7 +21,7 @@ public class Main {
             String subjectCode = input.next();
             System.out.println("Please enter your name:");
             String name = input.next();
-            team.createTeam(subjectCode, name);
+            System.out.println(team.createTeam(subjectCode, name));
         }
         else if (option==2) {
             System.out.println("Please enter the subject code:");
@@ -34,7 +34,7 @@ public class Main {
                 int teamNumber = input.nextInt();
                 System.out.println("Please enter your name:");
                 String name = input.next();
-                team.joinTeam(subjectCode, name, teamNumber);
+                System.out.println(team.joinTeam(subjectCode, name, teamNumber));
 
 
             }

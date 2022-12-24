@@ -40,7 +40,8 @@ public class Team {
         this.studyTeams.get("ITCS114")[0] = new String[]{"sara22khalid", "samar87magdy", "sara22khalid", "samar87magdy",
                 "mohannad0ahmed", "samar87magdy", "sara22khalid"};
         this.studyTeams.put("ITCS333", new String[10][10]);
-        this.studyTeams.get("ITCS333")[0] = new String[]{"saranaser8", "ahmed76yousef", "kathreen77", "ahmed76yousef"};
+        this.studyTeams.get("ITCS333")[0] = new String[]{"saranaser8", "ahmed76yousef", "kathreen77", "ahmed76yousef",
+                "amal77", "anwar55", "asmaa6", "angela66", "morad66", "tamara55"};
         this.studyTeams.put("ITCS214", new String[10][10]);
         this.studyTeams.put("Math101", new String[10][10]);
         this.studyTeams.put("Math102", new String[10][10]);
@@ -80,7 +81,6 @@ public class Team {
             return false;
                 }
 
-
     }
     public boolean joinTeam(String subjectCode, String name, int teamNumber) {
         // Invalid subject code
@@ -89,16 +89,15 @@ public class Team {
             return false;
         }
         // Invalid team number
-        else if (teamNumber >= this.studyTeams.get(subjectCode).length) {
+        else if (teamNumber - 1 >= this.studyTeams.get(subjectCode).length || teamNumber - 1 < 0) {
             System.out.println("Invalid team number");
             return false;
         }
 
         // Team is full
         int count = 0;
-        if (this.studyTeams.containsKey(subjectCode)) {
-            for (int i = 0; i < studyTeams.get(subjectCode)[teamNumber].length; i++) {
-                if (studyTeams.get(subjectCode)[i] != null) {
+            for (int i = 0; i < studyTeams.get(subjectCode)[teamNumber-1].length; i++) {
+                if (studyTeams.get(subjectCode)[teamNumber-1][i] != null) {
                     count++;
                 }
             }
@@ -107,38 +106,24 @@ public class Team {
                 return false;
             }
 
-            // Join a team
-            if (this.studyTeams.get(subjectCode)[teamNumber] != null) {
-                for (int i = 0; i < studyTeams.get(subjectCode)[teamNumber].length; i++) {
-                    if (studyTeams.get(subjectCode)[teamNumber][i] == null) {
-                        studyTeams.get(subjectCode)[teamNumber][i] = name;
-                        return true;
-                    }
-                }
-            }
-        }
-
 
         // If the user is already in the team
-        for (int i = 0; i < studyTeams.get(subjectCode)[teamNumber].length; i++) {
-            if (this.studyTeams.get(subjectCode)[teamNumber][i] != null) {
-                if (this.studyTeams.get(subjectCode)[teamNumber][i].equals(name)) {
+        for (int i = 0; i < studyTeams.get(subjectCode)[teamNumber-1].length; i++) {
+            if (this.studyTeams.get(subjectCode)[teamNumber-1][i] != null) {
+                if (this.studyTeams.get(subjectCode)[teamNumber-1][i].equals(name)) {
                     System.out.println("You are already in this team");
-                    return false;
-                }
-                else if (this.studyTeams.get(subjectCode)[teamNumber][i] == null) {
-                    this.studyTeams.get(subjectCode)[teamNumber][i] = name;
-                    System.out.println("You have successfully joined the team");
-                    System.out.println("Here is the list of members in your team:");
-                    for (int m = 0; m < studyTeams.get(subjectCode)[teamNumber].length; m++) {
-                        if (this.studyTeams.get(subjectCode)[teamNumber][m] != null) {
-                            System.out.println(studyTeams.get(subjectCode)[teamNumber][m]);
-                        }
-                    return true;
                 }
 
-                }
             }
+        }
+        // Join a team
+        for (int i = 0; i < studyTeams.get(subjectCode)[teamNumber-1].length; i++) {
+            System.out.println(studyTeams.get(subjectCode)[teamNumber-1][i]);
+            if (studyTeams.get(subjectCode)[teamNumber-1][i] == null) {
+                studyTeams.get(subjectCode)[teamNumber-1][i] = name;
+                System.out.println("You joined the team successfully");
+                return true;
+                }
         }
         return false;
     }
@@ -148,7 +133,7 @@ public class Team {
             return false;
         }
         // Invalid team number
-        else if (teamNumber >= this.studyTeams.get(subject).length) {
+        else if (teamNumber -1 >= this.studyTeams.get(subject).length || teamNumber-1 < 0) {
             System.out.println("Invalid team number");
             return false;
         }
