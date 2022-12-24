@@ -15,8 +15,8 @@ public class Team {
     public void defineAll(){
         // Define study teams
         this.studyTeams.put("ITCS347", new String[50][20]);
-        this.studyTeams.get("ITCS347")[0] = new String[]{"Ali", "Ahmed", "Noor", "Ameera", "Tasnim", "Omar", "Mohammad"};
-        this.studyTeams.get("ITCS347")[1] = new String[]{"Haleem", "Hassan", "Hussain", "Hussam", "Hussein", "Husam", "Hussein"};
+        this.studyTeams.get("ITCS347")[0] = new String[]{"aloy85", "ahmed0ali", "noor22osama", "ameera23ali", "Tasnim", "Omar", "Mohammad"};
+        this.studyTeams.get("ITCS347")[1] = new String[]{"Haleem", "Hassan", "Hussain", "Hussam", "hussien0gamal", "Husam", "Hussein"};
         this.studyTeams.get("ITCS347")[2] = new String[]{"Eman", "Ebrahim", "Eid", "Eithar", "Eve", "Emma", "Elene"};
         this.studyTeams.put("ITCS222", new String[50][20]);
         this.studyTeams.get("ITCS222")[0] = new String[]{"Ameer", "Anna", "Amer", "Ameera", "Ahmad", "Omar", "Mohammad"};
@@ -39,28 +39,33 @@ public class Team {
     public Hashtable<String, String[][]> getStudyTeams(){
         return this.studyTeams;
     }
-    public void createTeam(String subjectCode, String name ){
+    public boolean createTeam(String subjectCode, String name ){
         // Create a new team
         if (this.studyTeams.containsKey(subjectCode)){
             for (int i = 0; i < studyTeams.get(subjectCode).length; i++) {
-                if (studyTeams.get(subjectCode)[i] == null){
+                if (studyTeams.get(subjectCode)[i] == null) {
                     studyTeams.get(subjectCode)[i] = new String[]{name};
-                    break;
+                    return true;
+                } else {
+                    System.out.println("Invalid subject code");
+                    return false;
                 }
             }
         }
-        else{
-            if(subjects.containsKey(subjectCode)){
-                studyTeams.put(subjectCode, new String[50][20]);
-                studyTeams.get(subjectCode)[0] = new String[]{name};
-            }
-            else{
-                System.out.println("Invalid subject code");
-            }
-        }
+        return false;
 
     }
     public boolean joinTeam(String subjectCode, String name, int teamNumber) {
+        // Invalid subject code
+        if (!this.studyTeams.containsKey(subjectCode)) {
+            System.out.println("Invalid subject code");
+            return false;
+        }
+        // Invalid team number
+        if (teamNumber > this.studyTeams.get(subjectCode).length) {
+            System.out.println("Invalid team number");
+            return false;
+        }
         // If the user is already in the team
         for (int i = 0; i < studyTeams.get(subjectCode)[teamNumber - 1].length; i++) {
             if (this.studyTeams.get(subjectCode)[teamNumber - 1][i] != null) {
